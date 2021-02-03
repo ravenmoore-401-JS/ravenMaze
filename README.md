@@ -10,16 +10,28 @@
 - [front-end application](https://snack.expo.io/@ravenmoore/ravenmaze) (when applicable)
 
 ### Setup
+scan this QR code ![qr](./assets/QR.png)
+
+or
 
 navigate to app snack at https://snack.expo.io/@ravenmoore/ravenmaze and scan the qr to open on your device.
 
-use device controlls to play game
+use device tilt controlls to play game
 
 
 #### Tests
 
+Soon to come!
 
 #### UML
+
+#### Future features
+
+login and user db
+menu page / pause menu
+leveled sets of mazes (ie a story mode)
+prety header and footer to track stats..
+rotate compatibility
 
 #### Links and Atribution
 
