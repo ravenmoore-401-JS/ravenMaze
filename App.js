@@ -2,23 +2,22 @@ import React, { Component} from 'react';
 import {Alert,StyleSheet, Dimensions, View } from 'react-native';
 import { GameEngine } from 'react-native-game-engine';
 import RNRestart from 'react-native-restart';
-import {
-  Accelerometer
-} from "expo-sensors";
-
+import {Accelerometer} from "expo-sensors";
 import Matter from 'matter-js';
 import Circle from './src/components/Circle';
 import Rectangle from './src/components/Rectangle';
-
 import CreateMaze from './src/helpers/CreateMaze';
 import GetRandomPoint from './src/helpers/GetRandomPoint';
 
 
 const { height, width } = Dimensions.get('window');
-console.log('h/w', height, width)
+
 // generate new maze
-const GRID_X = 12; 
-const GRID_Y = 17; 
+
+// todo add dificulty modulator for grid nums
+
+const GRID_X = 10; 
+const GRID_Y = 13; 
 const maze = CreateMaze(GRID_X, GRID_Y);
 
 
@@ -45,7 +44,7 @@ const goal = Matter.Bodies.rectangle(goalPoint.x, goalPoint.y, GOAL_SIZE, GOAL_S
 });
 
 // set Ball sensitivity lower = faster
-Accelerometer.setUpdateInterval(5);
+Accelerometer.setUpdateInterval(30);
 
 export default class App extends Component {
   constructor(props){
