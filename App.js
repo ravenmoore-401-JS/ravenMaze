@@ -17,8 +17,8 @@ import GetRandomPoint from './src/helpers/GetRandomPoint';
 const { height, width } = Dimensions.get('window');
 console.log('h/w', height, width)
 // generate new maze
-const GRID_X = 5; 
-const GRID_Y = 7; 
+const GRID_X = 12; 
+const GRID_Y = 17; 
 const maze = CreateMaze(GRID_X, GRID_Y);
 
 
@@ -40,11 +40,12 @@ const GOAL_SIZE = Math.floor(width * .05);
 const goalPoint = GetRandomPoint(GRID_X,GRID_Y);
 const goal = Matter.Bodies.rectangle(goalPoint.x, goalPoint.y, GOAL_SIZE, GOAL_SIZE, {
   isSensor: true,
+  isStatic: true,
   label: 'goal'
 });
 
 // set Ball sensitivity lower = faster
-Accelerometer.setUpdateInterval(10);
+Accelerometer.setUpdateInterval(5);
 
 export default class App extends Component {
   constructor(props){
