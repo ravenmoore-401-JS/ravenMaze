@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import {Alert, Dimensions, View } from 'react-native';
+import {Alert,StyleSheet, Dimensions, View } from 'react-native';
 import { GameEngine } from 'react-native-game-engine';
 import RNRestart from 'react-native-restart';
 import {
@@ -15,10 +15,10 @@ import GetRandomPoint from './src/helpers/GetRandomPoint';
 
 
 const { height, width } = Dimensions.get('window');
-
+console.log('h/w', height, width)
 // generate new maze
-const GRID_X = 11; 
-const GRID_Y = 16; 
+const GRID_X = 5; 
+const GRID_Y = 7; 
 const maze = CreateMaze(GRID_X, GRID_Y);
 
 
@@ -39,13 +39,12 @@ const theBall = Matter.Bodies.circle(
 const GOAL_SIZE = Math.floor(width * .05);
 const goalPoint = GetRandomPoint(GRID_X,GRID_Y);
 const goal = Matter.Bodies.rectangle(goalPoint.x, goalPoint.y, GOAL_SIZE, GOAL_SIZE, {
-  isStatic: true,
   isSensor: true,
   label: 'goal'
 });
 
 // set Ball sensitivity lower = faster
-Accelerometer.setUpdateInterval(500);
+Accelerometer.setUpdateInterval(10);
 
 export default class App extends Component {
   constructor(props){
@@ -160,20 +159,26 @@ export default class App extends Component {
     }
 
     const walls = Matter.Composite.allBodies(maze);
+
+    console.log('walls are here lotst of them', walls);
+
+
     walls.forEach((body,index) =>{
       const {min,max} = body.bounds;
       const width = max.x - min.x;
       const height = max.y - min.y;
-      
+      console.log('ima a bloody body',body.position)
       Object.assign(entities, {
         ['wall_'+ index]: {
           body: body,
           size: [width,height],
-          color: '#fbb050',
+          color: '#000',
           renderer: Rectangle
         }
       });
+
     });
+    console.table('walls after',entities)
     return entities;
   }
   
@@ -192,7 +197,7 @@ export default class App extends Component {
     return null;
   }
 }
-const styles = ({
+const styles = StyleSheet.create({
   container: {
     flex: 1
   },
