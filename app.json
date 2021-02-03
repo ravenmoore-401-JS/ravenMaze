@@ -3,6 +3,7 @@
     "name": "ravenMaze",
     "slug": "ravenMaze",
     "version": "1.0.0",
+    "description":"A more tactile digital puzzle game.",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
