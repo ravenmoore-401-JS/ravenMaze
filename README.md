@@ -1,6 +1,4 @@
-# LAB - Class 41
-
-## Project: RavenMaze
+# RavenMaze
 
 ### Author: Matt Ravenmoore
 
@@ -37,5 +35,7 @@ The toutorial on this app that i followed and updated.
 
 links
 [article](https://heartbeat.fritz.ai/creating-an-accelerometer-powered-maze-game-in-react-native-9daedb5740b3)
+
+
 [github-demo](https://github.com/anchetaWern/RNAccelerometerMaze)
 

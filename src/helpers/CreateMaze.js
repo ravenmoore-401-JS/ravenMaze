@@ -18,8 +18,8 @@ const directionX = {
 };
 
 const directionY = {
-  'T': -1,
-  'B': 1,
+  'T': 1,
+  'B': -1,
   'R': 0,
   'L': 0
 };
